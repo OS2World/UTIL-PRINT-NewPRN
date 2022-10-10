@@ -1,0 +1,30 @@
+#ifndef newprn_idl
+#define newprn_idl
+
+#include <wpprint.idl>
+#include <somcls.idl>
+
+interface NewPrinter : WPPrinter
+{
+   #ifdef __SOMIDL__
+   implementation
+   {
+      functionprefix = newprn_;
+      majorversion = 1;
+      minorversion = 2;
+
+      passthru C_h  =
+      "#define INCL_WIN"
+      "#define INCL_DOS"
+      "#include <os2.h>"
+      ""
+      "#define ID_HOLD     (WPMENUID_USER+1)"
+      "#define ID_RELEASE  (WPMENUID_USER+2)";
+
+      wpModifyPopupMenu  : override;
+      wpMenuItemSelected : override;
+   };
+   #endif
+};
+
+#endif
