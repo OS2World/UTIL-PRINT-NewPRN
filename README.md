@@ -8,7 +8,7 @@ Adds a "Hold" and "Release" to printer's 1st level menu.
 * SOM Compiler
  
 ## AUTHORS
-* 
+* Samuel Audet
 
 ## LINKS
 * 
